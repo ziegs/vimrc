@@ -86,6 +86,7 @@ endif
 syntax enable
 set autoread
 set wildmenu
+set guioptions-=T
 set hidden
 set history=768
 set cf
@@ -104,7 +105,8 @@ set smartcase
 set incsearch
 set hlsearch
 set wildignore+=*.o,*.obj,*.exe,*.so,*.dll,*.pyc,.svn,.hg,.bzr,.git,
-  \.sass-cache,*.class,*.scssc,*.cssc,sprockets%*,*.lessc
+  \.sass-cache,*.class,*.scssc,*.cssc,sprockets%*,*.lessc,magicjar/**,
+  \review/**,blaze-*/**
 
 set sidescrolloff=2
 set numberwidth=4

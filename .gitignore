@@ -1,5 +1,6 @@
 *.swo
 *~
 *.swp
-tmp/*
-backup/*
+tmp/
+backup/
+bundle/

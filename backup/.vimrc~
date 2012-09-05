@@ -118,15 +118,10 @@ set list
 " Reset the listchars
 set listchars=""
 " a tab should display as "  ", trailing whitespace as "."
-set listchars=tab:\ \  " Indentended trailing whitespace
-" show trailing spaces as dots
-set listchars+=trail:.
-" The character to show in the last column when wrap is off and the line
-" continues beyond the right of the screen
-set listchars+=extends:>
-" The character to show in the last column when wrap is off and the line
-" continues beyond the right of the screen
-set listchars+=precedes:<
+set listchars=tab:▸\·,eol:¬,trail:\·,extends:»,precedes:«
+highlight NonText ctermfg=DarkGrey
+highlight SpecialKey ctermbg=0 ctermfg=DarkRed
+" Demo: tab & trailing spaces should be red	text    
 
 set noerrorbells
 set novisualbell
@@ -277,4 +272,9 @@ nnoremap <silent> <LocalLeader>rs :source ~/.vimrc<CR>
 nnoremap <silent> <LocalLeader>rt :tabnew ~/.vim/vimrc<CR>
 nnoremap <silent> <LocalLeader>re :e ~/.vim/vimrc<CR>
 nnoremap <silent> <LocalLeader>rd :e ~/.vim/ <CR>
+
+vmap so !sort<CR>
+nmap <silent> <leader>w :w<CR>
+nmap <silent> <leader>x :bd<CR>
+
 

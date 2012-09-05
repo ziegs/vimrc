@@ -1,6 +1,9 @@
-" Author: Matthew Ziegelbaum
+"
+" Vim Config
+" Matthew Ziegelbaum
 "
 
+" Preconfig for Vundle
 set nocompatible               " be iMproved
 filetype off                   " required!
 
@@ -52,6 +55,9 @@ Bundle 'acustodioo/vim-tmux'
 Bundle 'hallison/vim-markdown'
 
 filetype plugin indent on     " required!
+
+syntax on " Need this before the next bunch
+silent! source ~/.vimrc-pre
 
 if has('gui_macvim')
   if has("gui_running")
@@ -281,4 +287,5 @@ nmap <silent> <leader>x :bd<CR>
 nmap <silent> <Space> <PageDown>
 nmap <silent> <M-Space> <PageUp>
 
-
+" Post-config
+silent! source ~/.vimrc-post

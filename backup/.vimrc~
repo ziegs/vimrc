@@ -38,6 +38,7 @@ Bundle 'keepcase.vim'
 Bundle 'scratch.vim'
 Bundle 'mattn/zencoding-vim'
 Bundle 'mutewinter/GIFL'
+Bundle 'sjbach/lusty'
 
 " JS
 Bundle 'pangloss/vim-javascript'
@@ -78,10 +79,10 @@ endif
 syntax enable
 set autoread
 set wildmenu
+set hidden
 set history=768
 set cf
 set autowrite
-set timeoutlen=350
 
 set tabstop=2
 set backspace=2
@@ -106,6 +107,11 @@ set matchtime=2
 
 set equalalways
 set splitbelow splitright
+:noremap ,v :vsp^M^W^W<cr>
+:noremap ,h :split^M^W^W<cr>
+
+set cursorline
+set cursorcolumn
 
 set list
 
@@ -258,4 +264,17 @@ endfunction
 "strip all trailing white space
 command! StripTrailingWhiteSpace :call Preserve("%s/\\s\\+$//e")<CR>
 
+imap jj <Esc>
+imap uu _
+imap hh =>
+imap aa @
+
+map <S-Enter> O<ESC>
+map <Enter> o<ESC>
+
+" Key mappings " {{{
+nnoremap <silent> <LocalLeader>rs :source ~/.vimrc<CR>
+nnoremap <silent> <LocalLeader>rt :tabnew ~/.vim/vimrc<CR>
+nnoremap <silent> <LocalLeader>re :e ~/.vim/vimrc<CR>
+nnoremap <silent> <LocalLeader>rd :e ~/.vim/ <CR>
 

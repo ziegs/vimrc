@@ -64,13 +64,12 @@ filetype plugin indent on     " required!
 syntax on " Need this before the next bunch
 silent! source ~/.vimrc-pre
 
+set guioptions-=Tm
 if has('gui_macvim')
   if has("gui_running")
     set guioptions=egmrt
   endif
   set macmeta
-elseif has('gui_running')
-  set guioptions-=Tm
 endif
 
 set background=dark

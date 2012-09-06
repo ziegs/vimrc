@@ -5,6 +5,10 @@
 
 " Preconfig for Vundle
 set nocompatible               " be iMproved
+
+let mapleader = ","
+let maplocalleader = "\\"
+
 filetype off                   " required!
 
 set rtp+=~/.vim/bundle/vundle/
@@ -65,6 +69,8 @@ if has('gui_macvim')
     set guioptions=egmrt
   endif
   set macmeta
+elseif has('gui_running')
+  set guioptions-=Tm
 endif
 
 set background=dark
@@ -86,13 +92,9 @@ if exists("+colorcolumn")
   set colorcolumn=+1
 endif
 
-let mapleader = ","
-let maplocalleader = "\\"
-
 syntax on
 set autoread
 set wildmenu
-set guioptions-=T
 set hidden
 set history=768
 set cf

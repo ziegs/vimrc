@@ -15,7 +15,7 @@ Bundle 'gmarik/vundle'
 
 "Navigation
 Bundle 'ZoomWin'
-Bundle 'wincent/Command-T'
+" Bundle 'wincent/Command-T'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
 
@@ -42,6 +42,7 @@ Bundle 'scratch.vim'
 Bundle 'mattn/zencoding-vim'
 Bundle 'mutewinter/GIFL'
 Bundle 'sjbach/lusty'
+Bundle 'YankRing.vim'
 
 " JS
 Bundle 'pangloss/vim-javascript'
@@ -70,8 +71,10 @@ set background=dark
 colorscheme jellybeans
 
 set backup
-set backupdir=~/.vim/backup
-set directory=~/.vim/tmp
+set backupdir=~/.vim/backup//
+set directory=~/.vim/tmp//
+set undodir=~/.vim/tmp/undo//
+set noswapfile
 
 set ruler
 set nu
@@ -83,7 +86,10 @@ if exists("+colorcolumn")
   set colorcolumn=+1
 endif
 
-syntax enable
+let mapleader = ","
+let maplocalleader = "\\"
+
+syntax on
 set autoread
 set wildmenu
 set guioptions-=T
@@ -91,6 +97,7 @@ set hidden
 set history=768
 set cf
 set autowrite
+au FocusLost * :wa
 
 set tabstop=2
 set backspace=2
@@ -100,16 +107,20 @@ set autoindent
 set smarttab
 set expandtab
 
+nnoremap / /\v
+vnoremap / /\v
 set ignorecase
 set smartcase
 set incsearch
 set hlsearch
+set gdefault
 set wildignore+=*.o,*.obj,*.exe,*.so,*.dll,*.pyc,.svn,.hg,.bzr,.git,
-  \.sass-cache,*.class,*.scssc,*.cssc,sprockets%*,*.lessc,magicjar/**,
-  \review/**,blaze-*/**
-
+  \.sass-cache,*.class,*.scssc,*.cssc,sprockets%*,*.lessc
 set sidescrolloff=2
 set numberwidth=4
+nnoremap <leader><space> :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
 
 set showmatch
 set matchtime=2
@@ -121,6 +132,8 @@ set splitbelow splitright
 
 set cursorline
 set cursorcolumn
+set relativenumber
+set undofile
 
 set list
 
@@ -136,13 +149,38 @@ set noerrorbells
 set novisualbell
 set t_vb=
 
-set mousehide
+" set mousehide
 set mouse=a
 
 set complete=.,w,b,u,U
 
 command! W w
 command! Q q
+
+" ---------------
+" Window movement
+" ---------------
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" ---------------
+" Turn off the arrows
+" ---------------
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+" Move by visual line, not file line
+nnoremap j gj
+nnoremap k gk
+
+
 
 nmap <C-d> <C-b>
 if has("gui_macvim")
@@ -170,6 +208,14 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType")
 " Indent Guides
 " ---------------
 let g:indent_guides_enable_on_vim_startup=1
+
+"----------------
+" YankRing
+" ---------------
+nnoremap <silent> <F3> :YRShow<cr>
+inoremap <silent> <F3> <ESC>:YRShow<cr>
+let g:yankring_replace_n_pkey = '<M-p>'
+let g:yankring_replace_n_nkey = '<M-n>'
 
 " ---------------
 " Session
@@ -225,14 +271,14 @@ nmap <silent> <leader>wo :ZoomWin<CR>
 " Command T and ctrlp.vim
 " ---------------
 " Ensure Ctrl-P isn't bound by default
-let g:ctrlp_map = ''
+" let g:ctrlp_map = ''
 
 " Ensure max height isn't too large. (for performance)
 let g:ctrlp_max_height = 10
-let g:CommandTMaxHeight = 10
+" let g:CommandTMaxHeight = 10
 
 " Set the default escape keybinding to, you guessed it, escape.
-let g:CommandTCancelMap = '<esc>'
+" let g:CommandTCancelMap = '<esc>'
 
 if has('gui_macvim')
   let g:Powerline_symbols = 'fancy'
@@ -288,6 +334,11 @@ nmap <silent> <leader>x :bd<CR>
 
 nmap <silent> <Space> <PageDown>
 nmap <silent> <M-Space> <PageUp>
+
+nnoremap <leader>a :Ack
+
+noremap  <F2> :NERDTreeToggle<cr>
+inoremap <F2> <esc>:NERDTreeToggle<cr>
 
 " Post-config
 silent! source ~/.vimrc-post

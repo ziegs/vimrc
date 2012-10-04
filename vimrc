@@ -30,6 +30,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'Rykka/colorv.vim'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'tomtom/quickfixsigns_vim'
+Bundle 'croaker/mustang-vim'
+Bundle 'tomasr/molokai'
 
 " Commands
 Bundle 'scrooloose/nerdcommenter'
@@ -76,7 +78,11 @@ if has('gui_macvim')
 endif
 
 set background=dark
-colorscheme jellybeans
+if has('gui_running')
+  colorscheme jellybeans
+else
+  colorscheme molokai
+endif
 
 set backup
 set backupdir=~/.vim/backup//

@@ -30,6 +30,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'Rykka/colorv.vim'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'tomtom/quickfixsigns_vim'
+Bundle 'tomasr/molokai'
 
 " Commands
 Bundle 'scrooloose/nerdcommenter'
@@ -131,8 +132,8 @@ set matchtime=2
 
 set equalalways
 set splitbelow splitright
-:noremap ,v :vsp^M^W^W<cr>
-:noremap ,h :split^M^W^W<cr>
+:noremap ,v <C-w>v<C-w>l
+:noremap ,h <C-w>s<C-w>j
 
 set cursorline
 set cursorcolumn

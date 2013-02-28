@@ -137,8 +137,8 @@ set matchtime=2
 
 set equalalways
 set splitbelow splitright
-:noremap ,v :vsp^M^W^W<cr>
-:noremap ,h :split^M^W^W<cr>
+:noremap ,v <C-w>v<C-w>l
+:noremap ,h <C-w>s<C-w>j
 
 set cursorline
 set cursorcolumn

@@ -19,19 +19,20 @@ Bundle 'gmarik/vundle'
 
 "Navigation
 Bundle 'ZoomWin'
-" Bundle 'wincent/Command-T'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
 
 " UI
-Bundle 'mutewinter/vim-indent-guides'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Rykka/colorv.vim'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'tomtom/quickfixsigns_vim'
 Bundle 'croaker/mustang-vim'
 Bundle 'tomasr/molokai'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'ervandew/supertab'
+Bundle 'edkolev/tmuxline.vim'
 
 " Commands
 Bundle 'scrooloose/nerdcommenter'
@@ -39,7 +40,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-fugitive'
 Bundle 'godlygeek/tabular'
-Bundle 'mileszs/ack.vim'
 Bundle 'gmarik/sudo-gui.vim'
 Bundle 'milkypostman/vim-togglelist'
 Bundle 'mutewinter/swap-parameters'
@@ -49,6 +49,8 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'mutewinter/GIFL'
 Bundle 'sjbach/lusty'
 Bundle 'YankRing.vim'
+Bundle 'benmills/vimux'
+Bundle 'mileszs/ack.vim'
 
 " JS
 Bundle 'pangloss/vim-javascript'
@@ -60,6 +62,7 @@ Bundle 'jnwhiteh/vim-golang.git'
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 Bundle 'acustodioo/vim-tmux'
 Bundle 'hallison/vim-markdown'
+Bundle 'scrooloose/syntastic'
 
 filetype plugin indent on     " required!
 
@@ -78,10 +81,9 @@ if has('gui_macvim')
 endif
 
 set background=dark
+colorscheme solarized
 if has('gui_running')
-  colorscheme jellybeans
 else
-  colorscheme molokai
 endif
 
 set backup
@@ -141,7 +143,6 @@ set splitbelow splitright
 :noremap ,h <C-w>s<C-w>j
 
 set cursorline
-set cursorcolumn
 set relativenumber
 set undofile
 
@@ -290,14 +291,6 @@ let g:ctrlp_max_height = 10
 " Set the default escape keybinding to, you guessed it, escape.
 " let g:CommandTCancelMap = '<esc>'
 
-if has('gui_macvim')
-  let g:Powerline_symbols = 'fancy'
-endif
-call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
-
-" Ack.vim
-nmap <silent> <leader>as :AckFromSearch<CR>
-
 " ---------------
 " Vundle
 " ---------------
@@ -350,5 +343,9 @@ nnoremap <leader>a :Ack
 noremap  <F2> :NERDTreeToggle<cr>
 inoremap <F2> <esc>:NERDTreeToggle<cr>
 
+let g:airline_powerline_fonts = 1
+let g:tmuxline_preset = 'crosshair'
+
 " Post-config
 silent! source ~/.vimrc-post
+

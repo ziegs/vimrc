@@ -63,6 +63,7 @@ Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 Bundle 'acustodioo/vim-tmux'
 Bundle 'hallison/vim-markdown'
 Bundle 'scrooloose/syntastic'
+Bundle 'uarun/vim-protobuf'
 
 filetype plugin indent on     " required!
 

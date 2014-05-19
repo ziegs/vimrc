@@ -20,6 +20,7 @@ Bundle 'gmarik/vundle'
 "Navigation
 Bundle 'ZoomWin'
 Bundle 'kien/ctrlp.vim'
+Bundle 'JazzCore/ctrlp-cmatcher'
 Bundle 'Lokaltog/vim-easymotion'
 
 " UI
@@ -33,6 +34,7 @@ Bundle 'tomasr/molokai'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'ervandew/supertab'
 Bundle 'edkolev/tmuxline.vim'
+Bundle 'christoomey/vim-tmux-navigator'
 
 " Commands
 Bundle 'scrooloose/nerdcommenter'
@@ -54,19 +56,27 @@ Bundle 'mileszs/ack.vim'
 
 " JS
 Bundle 'pangloss/vim-javascript'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'othree/javascript-libraries-syntax.vim'
+Bundle 'Raimondi/delimitMate'
 Bundle 'leshill/vim-json'
 Bundle 'itspriddle/vim-jquery'
+Bundle 'marijnh/tern_for_vim'
 
 " Random languages
-Bundle 'jnwhiteh/vim-golang.git'
+Bundle 'Blackrush/vim-gocode'
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 Bundle 'acustodioo/vim-tmux'
 Bundle 'hallison/vim-markdown'
 Bundle 'scrooloose/syntastic'
+Bundle 'tfnico/vim-gradle'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'mattn/emmet-vim'
+Bundle 'ingydotnet/yaml-vim'
 
-filetype plugin indent on     " required!
+filetype plugin indent on
 
-syntax on " Need this before the next bunch
+syntax on
 silent! source ~/.vimrc-pre
 
 if has('gui_running')
@@ -80,8 +90,8 @@ if has('gui_macvim')
   set macmeta
 endif
 
-set background=dark
 colorscheme solarized
+set background=light
 if has('gui_running')
 else
 endif
@@ -203,7 +213,7 @@ else
 endif
 
 nmap gy :%y+<cr> " Yank entire buffer
-nnoremap <leader>, :e#<CR>
+
 
 " ---------------
 " NERDTree
@@ -214,11 +224,6 @@ let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2 " Change the NERDTree directory to the root node
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType")
   \&& b:NERDTreeType == "primary") | q | endif
-
-" ---------------
-" Indent Guides
-" ---------------
-let g:indent_guides_enable_on_vim_startup=1
 
 "----------------
 " YankRing
@@ -279,17 +284,14 @@ nmap <Leader>gx :wincmd h<CR>:q<CR>
 nmap <silent> <leader>wo :ZoomWin<CR>
 
 " ---------------
-" Command T and ctrlp.vim
+" ctrlp.vim
 " ---------------
-" Ensure Ctrl-P isn't bound by default
-" let g:ctrlp_map = ''
 
-" Ensure max height isn't too large. (for performance)
+" Ensure max height isn't too large.
 let g:ctrlp_max_height = 10
-" let g:CommandTMaxHeight = 10
-
-" Set the default escape keybinding to, you guessed it, escape.
-" let g:CommandTCancelMap = '<esc>'
+let g:ctrl_cmd = 'CtrlPMixed'
+let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+let g:ctrlp_working_path_mode = 'ra'
 
 " ---------------
 " Vundle
@@ -324,6 +326,7 @@ imap aa @
 
 map <S-Enter> O<ESC>
 map <Enter> o<ESC>
+imap <C-c> <CR><Esc>O
 
 " Key mappings " {{{
 nnoremap <silent> <LocalLeader>rs :source ~/.vimrc<CR>
@@ -345,6 +348,8 @@ inoremap <F2> <esc>:NERDTreeToggle<cr>
 
 let g:airline_powerline_fonts = 1
 let g:tmuxline_preset = 'crosshair'
+
+"au FileType javascript call JavaScriptFold()
 
 " Post-config
 silent! source ~/.vimrc-post

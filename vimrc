@@ -12,67 +12,69 @@ let maplocalleader = "\\"
 filetype off                   " required!
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
 " let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 "Navigation
-Bundle 'ZoomWin'
-Bundle 'kien/ctrlp.vim'
-Bundle 'JazzCore/ctrlp-cmatcher'
-Bundle 'Lokaltog/vim-easymotion'
+Plugin 'ZoomWin'
+Plugin 'kien/ctrlp.vim'
+Plugin 'JazzCore/ctrlp-cmatcher'
+Plugin 'Lokaltog/vim-easymotion'
 
 " UI
-Bundle 'bling/vim-airline'
-Bundle 'scrooloose/nerdtree'
-Bundle 'Rykka/colorv.vim'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'tomtom/quickfixsigns_vim'
-Bundle 'croaker/mustang-vim'
-Bundle 'tomasr/molokai'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'ervandew/supertab'
-Bundle 'edkolev/tmuxline.vim'
-Bundle 'christoomey/vim-tmux-navigator'
+Plugin 'bling/vim-airline'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Rykka/colorv.vim'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'tomtom/quickfixsigns_vim'
+Plugin 'croaker/mustang-vim'
+Plugin 'tomasr/molokai'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'ervandew/supertab'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " Commands
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-speeddating'
-Bundle 'tpope/vim-fugitive'
-Bundle 'godlygeek/tabular'
-Bundle 'gmarik/sudo-gui.vim'
-Bundle 'milkypostman/vim-togglelist'
-Bundle 'mutewinter/swap-parameters'
-Bundle 'keepcase.vim'
-Bundle 'scratch.vim'
-Bundle 'mattn/zencoding-vim'
-Bundle 'mutewinter/GIFL'
-Bundle 'sjbach/lusty'
-Bundle 'YankRing.vim'
-Bundle 'benmills/vimux'
-Bundle 'mileszs/ack.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-speeddating'
+Plugin 'tpope/vim-fugitive'
+Plugin 'godlygeek/tabular'
+Plugin 'gmarik/sudo-gui.vim'
+Plugin 'milkypostman/vim-togglelist'
+Plugin 'mutewinter/swap-parameters'
+Plugin 'keepcase.vim'
+Plugin 'scratch.vim'
+Plugin 'mattn/zencoding-vim'
+Plugin 'mutewinter/GIFL'
+Plugin 'sjbach/lusty'
+Plugin 'YankRing.vim'
+Plugin 'benmills/vimux'
+Plugin 'mileszs/ack.vim'
 
 " JS
-Bundle 'pangloss/vim-javascript'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'othree/javascript-libraries-syntax.vim'
-Bundle 'Raimondi/delimitMate'
-Bundle 'leshill/vim-json'
-Bundle 'itspriddle/vim-jquery'
-Bundle 'marijnh/tern_for_vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'leshill/vim-json'
+Plugin 'itspriddle/vim-jquery'
+Plugin 'marijnh/tern_for_vim'
 
 " Random languages
-Bundle 'Blackrush/vim-gocode'
-Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
-Bundle 'acustodioo/vim-tmux'
-Bundle 'hallison/vim-markdown'
-Bundle 'scrooloose/syntastic'
-Bundle 'tfnico/vim-gradle'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'mattn/emmet-vim'
-Bundle 'ingydotnet/yaml-vim'
+Plugin 'Blackrush/vim-gocode'
+Plugin 'ChrisYip/Better-CSS-Syntax-for-Vim'
+Plugin 'acustodioo/vim-tmux'
+Plugin 'hallison/vim-markdown'
+Plugin 'scrooloose/syntastic'
+Plugin 'tfnico/vim-gradle'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'mattn/emmet-vim'
+Plugin 'ingydotnet/yaml-vim'
+
+call vundle#end()
 
 filetype plugin indent on
 
